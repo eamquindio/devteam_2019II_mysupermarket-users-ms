@@ -1,5 +1,7 @@
 const express = require('express');
 const PersonController = require('./controllers/PersonController');
+const UserController = require('./controllers/UsersController')
+
 
 const router = express.Router();
 
@@ -12,5 +14,8 @@ router.get('/persons/all', PersonController.listAll);
 
 
 
+// Users routers
+
+router.get('/users/find_by_name', UserController.findByName);
 
 module.exports = router;
