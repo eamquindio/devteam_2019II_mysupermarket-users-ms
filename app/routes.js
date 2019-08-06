@@ -1,6 +1,6 @@
 const express = require('express');
 const PersonController = require('./controllers/PersonController');
-const UserController = require('./controllers/UsersController')
+const UserController = require('./controllers/UsersController');
 const router = express.Router();
 
 // Persons Routes
@@ -14,6 +14,6 @@ router.get('/persons/all', PersonController.listAll);
 
 // Users Routes
 router.put('/users/:id', UserController.edit); // edit user
-
+router.post('/users', UserController.save); // Create new users
 
 module.exports = router;
