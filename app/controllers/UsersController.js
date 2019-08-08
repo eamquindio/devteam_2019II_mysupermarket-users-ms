@@ -14,7 +14,7 @@ UserController.edit = async (req, res) => {
 
 UserController.findByName = async (req, res) => {
     try {
-        const { query: { name } } = req;
+        const { params: { name } } = req;
         const user = await UserService.findByName(name);
         return res.send(user);
     } catch (error) {
