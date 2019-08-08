@@ -27,8 +27,12 @@ router.get('/users/find_by_name/:name', UserController.findByName);
 router.put('/users/:id', UserController.edit); // edit user
 // Users routes
 
+<<<<<<< HEAD
 router.get('/users/find_by_name', UserController.findByName);
 
 >>>>>>> [resolves #14] Find user by name routes
+=======
+router.get('/users/find_by_name/:name', UserController.findByName);
+>>>>>>> [resolves #14] Find by users repare
 
 module.exports = router;
