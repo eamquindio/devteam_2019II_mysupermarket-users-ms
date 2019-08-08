@@ -14,6 +14,9 @@ router.get('/persons/all', PersonController.listAll);
 
 // Users Routes
 router.put('/users/:id', UserController.edit); // edit user
+// Users routes
+
+router.get('/users/find_by_name', UserController.findByName);
 
 
 module.exports = router;
