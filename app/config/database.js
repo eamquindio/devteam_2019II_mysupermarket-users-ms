@@ -1,10 +1,4 @@
-const { DB_CONNECTION ={
-host:'127.0.0.1',
-user:'postgres',
-password:'0000',
-database:'users_ms',
-port:'5432'
-}} = process.env;
+const { DB_CONNECTION = 'postgres://localhost:5433/users_ms' } = process.env;
 const MAX_CONNECTION_POOLSIZE = 5;
 
 module.exports = {
