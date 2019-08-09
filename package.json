@@ -25,7 +25,6 @@
     "knex": "^0.14.6",
     "mock-knex": "^0.4.0",
     "moment-timezone": "^0.5.23",
-    "mysql": "^2.17.1",
     "pg": "^7.4.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
