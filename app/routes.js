@@ -1,11 +1,6 @@
 const express = require('express');
 const PersonController = require('./controllers/PersonController');
-<<<<<<< HEAD
 const UserController = require('./controllers/UsersController')
-=======
-const UsersController = require('./controllers/UsersController');
-
->>>>>>> add the fuctionality of list All [resolves #16]
 const router = express.Router();
 
 // Persons Routes
