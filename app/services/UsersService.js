@@ -1,11 +1,8 @@
 const UserService = module.exports;
 const UserRepository = require('../repositories/UserRepository');
 
-
-UserService.listAll = () => {
-    console.log('findByName user')
-
-    return UserRepository.listAll();
-}
-
+//test 2....
+UserService.edit = (id, user) => {
+    console.log('edit user')
+    return UserRepository.edit(id, user);
 }
