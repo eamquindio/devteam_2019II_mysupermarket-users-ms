@@ -6,7 +6,17 @@ UserController.edit = async (req, res) => {
         const { params: { id }, body } = req;
         const user = await UserService.edit(id, body);
         return res.send();
-    }catch(error){
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('error')
+    }
+}
+
+UserController.listAll = async (req, res) => {
+    try {
+        const user = await UserService.listAll();
+         return res.send(user);
+    } catch (error) {
         console.log(error);
         res.status(500).send('error')
     }

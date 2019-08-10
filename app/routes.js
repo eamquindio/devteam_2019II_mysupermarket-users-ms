@@ -15,5 +15,7 @@ router.get('/persons/all', PersonController.listAll);
 // Users Routes
 router.put('/users/:id', UserController.edit); // edit user
 router.post('/users', UserController.save); // Create new users
+router.get('/users/all', UsersController.listAll);//list all users
+
 
 module.exports = router;

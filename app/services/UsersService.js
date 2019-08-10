@@ -9,3 +9,9 @@ UserService.create = (user) => {
     console.log('creating user');
     return UserRepository.create(user);
 }
+
+UserService.listAll = (name) => {
+    console.log('findByName user')
+        return UserRepository.listAll();
+}
+
