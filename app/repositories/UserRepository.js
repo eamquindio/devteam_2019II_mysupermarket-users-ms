@@ -1,3 +1,5 @@
 const UserRepository = module.exports;
 const DB = require('../utils/DB');
-UserRepository.listAll = () => DB('users').select('*');
+
+UserRepository.edit = (userId, user) => DB('users').update(user).where({ userId });
+
