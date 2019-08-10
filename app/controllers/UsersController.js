@@ -17,7 +17,7 @@ UserController.save = async (req, res) => {
     try {
         await UserService.create(body);
         return res.send();
-    }catch(error){
+    } catch(error) {
         console.log(error);
         res.status(500).send('error');
     }
