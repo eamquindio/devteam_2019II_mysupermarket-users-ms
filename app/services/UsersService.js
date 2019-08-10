@@ -9,3 +9,7 @@ UserService.create = (user) => {
     console.log('creating user');
     return UserRepository.create(user);
 }
+
+UserService.delete = (id) => {
+    return UserRepository.delete(id);
+}
