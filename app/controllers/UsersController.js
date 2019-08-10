@@ -1,5 +1,5 @@
 const UserController = module.exports;
-const UserService = require('../services/UserService');
+const UserService = require('../services/UsersService');
 
 UserController.edit = async (req, res) => {
     try {
