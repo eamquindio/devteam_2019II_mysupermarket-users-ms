@@ -11,3 +11,14 @@ UserController.edit = async (req, res) => {
         res.status(500).send('error')
     }
 }
+
+UserController.save = async (req, res) => {
+    const { body } = req;
+    try {
+        await UserService.create(body);
+        return res.send();
+    } catch(error) {
+        console.log(error);
+        res.status(500).send('error');
+    }
+}
