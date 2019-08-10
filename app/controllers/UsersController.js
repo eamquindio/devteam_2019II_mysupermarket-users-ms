@@ -10,7 +10,6 @@ UserController.edit = async (req, res) => {
 =======
 const UserService = require('../services/UserService');
 
-
 UserController.delete = async (req, res) => {
     try {
         const { params: { id } } = req;
