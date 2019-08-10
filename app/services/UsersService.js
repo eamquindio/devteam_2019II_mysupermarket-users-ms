@@ -1,4 +1,4 @@
-const UserService = module.exports;
+const UsersService = module.exports;
 const UserRepository = require('../repositories/UserRepository');
 
 //test 2....
@@ -7,7 +7,7 @@ UserService.edit = (id, user) => {
     return UserRepository.edit(id, user);
 }
 
-UserService.findByName = (name) => {
+UsersService.findByName = (name) => {
     console.log('findByName user')
 
     return UserRepository.findByName(name);
