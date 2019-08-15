@@ -2,38 +2,38 @@ const PersonService = module.exports;
 const PersonRepository = require('../repositories/PersonaRepository');
 
 PersonService.create = (person) => {
-    console.log('creating person')
+  console.log('creating person');
 
-    return PersonRepository.create(person);
-}
+  return PersonRepository.create(person);
+};
 
 PersonService.find = (person) => {
-    console.log('find person')
+  console.log('find person');
 
-    return PersonRepository.find(person);
-}
+  return PersonRepository.find(person);
+};
 
 PersonService.edit = (id, person) => {
-    console.log('edit person')
+  console.log('edit person');
 
-    return PersonRepository.edit(id, person);
-}
+  return PersonRepository.edit(id, person);
+};
 
 PersonService.delete = (id) => {
-    console.log('delete person')
+  console.log('delete person');
 
-    return PersonRepository.delete(id);
-}
+  return PersonRepository.delete(id);
+};
 
 PersonService.findByName = (name) => {
-    console.log('findByName person')
+  console.log('findByName person');
 
-    return PersonRepository.findByName(name);
-}
+  return PersonRepository.findByName(name);
+};
 
 
-PersonService.listAll = (name) => {
-    console.log('findByName person')
+PersonService.listAll = () => {
+  console.log('findByName person');
 
-    return PersonRepository.listAll();
-}
+  return PersonRepository.listAll();
+};
