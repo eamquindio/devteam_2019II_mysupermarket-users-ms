@@ -5,10 +5,10 @@ exports.up = knex =>
     table.string('mobile_id').notNullable();
     table.string('mobile_model');
     table.string('mobile_branch');
-  
+
     table.timestamps(true, true);
 
-    table.foreign('user_id').references('user_id').inTable('users')
+    table.foreign('user_id').references('user_id').inTable('users');
     table.index('user_id');
     table.index('mobile_id');
   });
