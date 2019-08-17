@@ -1,10 +1,12 @@
-const UserService = module.exports;
+const UsersService = module.exports;
 const UserRepository = require('../repositories/UserRepository');
 
-UserService.init = () => console.log(UserRepository);
+UsersService.init = () => console.log(UserRepository);
 
-UserService.create = (user) => {
+UsersService.create = (user) => {
   console.log('creating user');
 
   return UserRepository.create(user);
 };
+UsersService.findByName = name => UserRepository.findByName(name);
+
