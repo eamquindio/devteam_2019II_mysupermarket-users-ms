@@ -13,4 +13,7 @@ router.put('/persons/:id', PersonController.edit);
 router.get('/persons/find_by_name', PersonController.findByName);
 router.get('/persons/all', PersonController.listAll);
 
+router.get('/users/all', UserController.listAll);
+
+
 module.exports = router;

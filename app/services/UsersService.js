@@ -2,3 +2,8 @@ const UserService = module.exports;
 const UserRepository = require('../repositories/UserRepository');
 
 UserService.init = () => console.log(UserRepository);
+
+UserService.listAll = () => {
+    console.log('findByName user');
+    return UserRepository.listAll();
+};
