@@ -10,6 +10,6 @@ UserController.edit = async (req, res) => {
         return res.send();
     }catch(error){
         console.log(error);
-        res.status(500).send('error')
+        res.status(500).send('error');
     }
-}
+};
