@@ -1,14 +1,4 @@
 const UserController = module.exports;
-const UserService = require('../services/UserService');
+const UserService = require('../services/UsersService');
 
-UserController.listAll = async (req, res) => {
-    try {
-        const user = await UserService.listAll();
-        return res.send(user);
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('error')
-    }
-
-}
-
+UserController.init = () => console.log(UserService);

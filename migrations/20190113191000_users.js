@@ -5,12 +5,11 @@ exports.up = knex =>
     table.string('user_name').notNullable();
     table.string('name');
     table.string('mail');
-  
+
     table.timestamps(true, true);
 
-    table.unique(['user_name'])
-    table.unique(['user_id'])
-
+    table.unique(['user_name']);
+    table.unique(['user_id']);
   });
 
 exports.down = knex => knex.schema.dropTable('users');

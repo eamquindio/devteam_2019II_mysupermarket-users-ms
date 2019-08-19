@@ -1,5 +1,5 @@
-const config = require('./app/config/database')
+const config = require('./app/config/database');
 
 module.exports = {
- ...config
+  ...config,
 };
