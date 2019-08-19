@@ -78,5 +78,5 @@ UserController.edit = async (req, res) => {
     res.status(500).send('error')
   }
 
-    return null;
+  return null;
 };
