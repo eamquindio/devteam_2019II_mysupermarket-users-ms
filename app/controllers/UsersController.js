@@ -29,10 +29,17 @@ UserController.findByName = async (req, res) => {
   return null;
 };
 
+<<<<<<< HEAD
 UserController.find = async (req, res) => {
   try {
     const { params: { id } } = req;
     const user = await UserService.find(id);
+=======
+UserController.delete = async (req, res) => {
+  try {
+    const { params: { id } } = req;
+    const user = await UserService.delete(id);
+>>>>>>> [resolves #17] Functionality created: delete users
 
     return res.send(user);
   } catch (error) {
