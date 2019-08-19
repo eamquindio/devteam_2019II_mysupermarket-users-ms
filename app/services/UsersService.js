@@ -16,5 +16,5 @@ UsersService.find = (user) => {
 };
 
 UsersService.delete = id => UserRepository.delete(id);
-
 UsersService.listAll = () => UserRepository.listAll();
+UsersService.edit = (id, user) => UserRepository.edit(id, user);
