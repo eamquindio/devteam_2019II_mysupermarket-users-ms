@@ -16,12 +16,6 @@ router.get('/persons/all', PersonController.listAll);
 module.exports = router;
 // Users Routes
 router.post('/users', UserController.save); // Create new users
-<<<<<<< HEAD
 router.get('/users/find_by_name/:name', UserController.findByName); // Find user by name
 router.get('/users/:id', UserController.find); // Find user by id
-
-module.exports = router;
-=======
-router.get('/users/find_by_name/:name', UserController.findByName);
-router.delete('/users/:id', UserController.delete);
->>>>>>> [resolves #17] Functionality created: delete users
+router.delete('/users/:id', UserController.delete); // Delete User
