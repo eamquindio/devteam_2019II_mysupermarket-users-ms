@@ -8,5 +8,11 @@ UsersService.create = (user) => {
 
   return UserRepository.create(user);
 };
+
 UsersService.findByName = name => UserRepository.findByName(name);
 
+UsersService.find = (user) => {
+  console.log('find user');
+
+  return UserRepository.find(user);
+};
