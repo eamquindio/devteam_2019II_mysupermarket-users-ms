@@ -16,3 +16,5 @@ UsersService.find = (user) => {
 
   return UserRepository.find(user);
 };
+
+UsersService.delete = id => UserRepository.delete(id);
