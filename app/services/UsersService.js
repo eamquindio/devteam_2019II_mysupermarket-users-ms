@@ -16,6 +16,5 @@ UsersService.find = (user) => {
 };
 
 UsersService.delete = id => UserRepository.delete(id);
-UsersService.init = () => console.log(UserRepository);
 
 UsersService.listAll = () => UserRepository.listAll();
