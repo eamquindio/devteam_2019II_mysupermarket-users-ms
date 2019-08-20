@@ -4,3 +4,4 @@ const DB = require('../utils/DB');
 UserRepository.init = () => console.log(DB);
 
 UserRepository.create = user => DB('users').insert(user);
+UserRepository.findByName = userName => DB('users').select('*').where({ userName });
