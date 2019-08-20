@@ -46,6 +46,11 @@ UserController.delete = async (req, res) => {
   try {
     const { params: { id } } = req;
     const user = await UserService.delete(id);
+UserController.init = () => console.log(UserService);
+
+UserController.listAll = async (req, res) => {
+  try {
+    const user = await UserService.listAll();
 
     return res.send(user);
   } catch (error) {

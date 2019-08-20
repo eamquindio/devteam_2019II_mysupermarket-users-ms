@@ -18,3 +18,10 @@ UsersService.find = (user) => {
 };
 
 UsersService.delete = id => UserRepository.delete(id);
+UsersService.init = () => console.log(UserRepository);
+
+UsersService.listAll = () => {
+  console.log('findByName user');
+
+  return UserRepository.listAll();
+};

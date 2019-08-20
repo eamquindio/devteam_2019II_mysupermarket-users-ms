@@ -19,3 +19,9 @@ router.post('/users', UserController.save); // Create new users
 router.get('/users/find_by_name/:name', UserController.findByName); // Find user by name
 router.get('/users/:id', UserController.find); // Find user by id
 router.delete('/users/:id', UserController.delete); // Delete User
+// Users routes
+router.get('/users/find_by_name/:name', UserController.findByName);
+router.get('/users/all', UserController.listAll);
+
+
+module.exports = router;

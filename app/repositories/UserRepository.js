@@ -7,3 +7,5 @@ UserRepository.create = user => DB('users').insert(user);
 UserRepository.findByName = userName => DB('users').select('*').where({ userName });
 UserRepository.find = id => DB('users').select('*').where({ id });
 UserRepository.delete = userId => DB('users').del().where({ userId });
+UserRepository.listAll = () => DB('users').select('*');
+
