@@ -14,17 +14,8 @@ router.get('/persons/find_by_name', PersonController.findByName);
 router.get('/persons/all', PersonController.listAll);
 
 // Users Routes
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 router.post('/users', UserController.save); // Create new users
 // Users routes
-=======
->>>>>>> [resolves #14] Correction find by user name
-=======
->>>>>>> [resolves #14] Find user by name routes
-=======
->>>>>>> [resolves #14] Rebase aplication
 router.get('/users/find_by_name/:name', UserController.findByName);
 
 module.exports = router;
