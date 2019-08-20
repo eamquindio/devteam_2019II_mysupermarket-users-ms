@@ -23,7 +23,7 @@ UserController.findByName = async (req, res) => {
     return res.send(user);
   } catch (error) {
     console.log(error);
-    res.status(500).send('error')
+    res.status(500).send('error');
   }
 
   return null;
