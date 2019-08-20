@@ -31,7 +31,6 @@ PersonService.findByName = (name) => {
   return PersonRepository.findByName(name);
 };
 
-
 PersonService.listAll = () => {
   console.log('findByName person');
 

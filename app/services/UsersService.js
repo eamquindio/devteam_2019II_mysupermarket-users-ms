@@ -1,8 +1,6 @@
 const UsersService = module.exports;
 const UserRepository = require('../repositories/UserRepository');
 
-UsersService.init = () => console.log(UserRepository);
-
 UsersService.create = (user) => {
   console.log('creating user');
 
@@ -18,3 +16,5 @@ UsersService.find = (user) => {
 };
 
 UsersService.delete = id => UserRepository.delete(id);
+
+UsersService.listAll = () => UserRepository.listAll();
