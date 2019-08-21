@@ -66,3 +66,17 @@ UserController.listAll = async (req, res) => {
     return res.status(500).send('error');
   }
 };
+
+UserController.edit = async (req, res) => {
+  try {
+    const { params: { id }, body } = req;
+    await UserService.edit(id, body);
+
+    return res.send();
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('error');
+  }
+
+  return null;
+};
