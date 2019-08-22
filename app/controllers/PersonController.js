@@ -45,7 +45,7 @@ PersonController.delete = async (req, res) => {
     const { params: { id } } = req;
     const person = await PersonService.delete(id);
 
-    return res.send(person);
+    return res.status(200).send(person);
   } catch (error) {
     console.log(error);
 
@@ -69,6 +69,7 @@ PersonController.findByName = async (req, res) => {
 PersonController.listAll = async (req, res) => {
   try {
     const person = await PersonService.listAll();
+    console.log(person);
 
     return res.send(person);
   } catch (error) {

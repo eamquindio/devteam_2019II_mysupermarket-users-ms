@@ -32,7 +32,7 @@ PersonService.findByName = (name) => {
 };
 
 PersonService.listAll = () => {
-  console.log('findByName person');
+  console.log('find all person');
 
   return PersonRepository.listAll();
 };
