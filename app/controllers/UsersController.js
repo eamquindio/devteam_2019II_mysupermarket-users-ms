@@ -45,16 +45,18 @@ UserController.find = async (req, res, next) => {
   }
 };
 
-UserController.delete = async (req, res) => {
+UserController.delete = async (req, res, next) => {
   try {
     const { params: { id } } = req;
     const user = await UserService.delete(id);
+
+    if (!user) return next(new ErrorHandler.BaseError('user not exists', 404));
 
     return res.send(user);
   } catch (error) {
     console.log(error);
 
-    return res.status(500).send('error');
+    return next(error);
   }
 };
 
