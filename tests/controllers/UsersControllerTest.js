@@ -93,7 +93,7 @@ describe('Users CRUD flows', () => {
       created_at: '2019-08-24T15:33:53.896Z',
       updated_at: '2019-08-24T15:33:53.896Z',
     }]);
-  
+
     return chai
       .request(app)
       .get(`${API}/find_by_name/alvaro`)
