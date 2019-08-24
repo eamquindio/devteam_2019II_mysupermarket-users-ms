@@ -1,4 +1,5 @@
 const UserController = module.exports;
+const ErrorHandler = require('../utils/ErrorHandlerMiddleware');
 
 const UserService = require('../services/UsersService');
 
@@ -29,10 +30,12 @@ UserController.findByName = async (req, res) => {
   return null;
 };
 
-UserController.find = async (req, res) => {
+UserController.find = async (req, res, next) => {
   try {
     const { params: { id } } = req;
     const user = await UserService.find(id);
+
+    if (!user) return next(new ErrorHandler.BaseError('user not exists', 404));
 
     return res.send(user);
   } catch (error) {
