@@ -8,13 +8,6 @@ const Helper = require('../Helper');
 const API = '/api/users-ms/users';
 chai.use(chaiHttp);
 
-// TODO: quitar despuest---------------------
-console.log(app);
-console.log(UserRepository);
-console.log(assert);
-console.log(API);
-// -----------------------------------------
-
 describe('Users CRUD flows', () => {
   before(() => Helper.migrate());
 
