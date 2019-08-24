@@ -142,5 +142,3 @@ describe('Users CRUD flows', () => {
       assert.equal(error.status, 404);
     }));
 });
-
-
