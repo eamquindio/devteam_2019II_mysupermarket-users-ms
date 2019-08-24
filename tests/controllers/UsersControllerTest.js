@@ -75,6 +75,7 @@ describe('Users CRUD flows', () => {
       assert.equal(error.status, 404);
     }));
 
+<<<<<<< HEAD
   it('find user by name test', async () => {
     await UserRepository.create([{
       id: 1,
@@ -141,4 +142,30 @@ describe('Users CRUD flows', () => {
     .catch((error) => {
       assert.equal(error.status, 404);
     }));
+=======
+    it('del user test', async () => {
+      await UserRepository.create({
+        id: 1,
+        user_id: 1,
+        user_name: 'camilo',
+        created_at: '2019-08-24T15:27:23.188Z',
+        updated_at: '2019-08-24T15:27:23.188Z',
+      });
+  
+      return chai
+        .request(app)
+        .del(`${API}/1`)
+        .then(async () => {
+          const userToAssert = await UserRepository.find(1);
+          assert.equal(userToAssert, null);
+        });
+    });
+  
+    it('delete user nof found test', async () => chai
+      .request(app)
+      .del(`${API}/1`)
+      .catch((error) => {
+        assert.equal(error.status, 404);
+      }));
+>>>>>>> Test unit delete user
 });
