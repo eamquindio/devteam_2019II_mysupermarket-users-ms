@@ -142,3 +142,24 @@ describe('Users CRUD flows', () => {
       assert.equal(error.status, 404);
     }));
 });
+
+it('find all users', async () => {
+  await UserRepository.create([{ id: 1, name: 'camilo' }, { id: 2, name: 'claudia' }]);
+
+  return chai
+    .request(app)
+    .get(`${API}/all`)
+    .then(async (response) => {
+      const { body } = response;
+      assert.deepEqual(body.length, 2);
+    });
+});
+
+it('find all users empty test', async () => chai
+  .request(app)
+  .get(`${API}/all`)
+  .then(async (response) => {
+    assert.equal(response.status, 204);
+  }));
+});
+
