@@ -2,7 +2,7 @@ const assert = require('assert');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../../index');
-const UserRepository = require('../../app/repositories/UserRepository.js');
+const UserRepository = require('../../app/repositories/UserRepository');
 const Helper = require('../Helper');
 
 const API = '/api/users-ms/users';
