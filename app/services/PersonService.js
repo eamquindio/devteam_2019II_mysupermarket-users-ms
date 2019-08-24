@@ -1,8 +1,13 @@
 const PersonService = module.exports;
 const PersonRepository = require('../repositories/PersonaRepository');
+const ErrorHandler = require('../utils/ErrorHandlerMiddleware');
 
-PersonService.create = (person) => {
+PersonService.create = async (person) => {
   console.log('creating person');
+
+  const personToValidate = await this.find(person.id);
+  console.log(personToValidate);
+  if (personToValidate) throw ErrorHandler.BaseError('person already exists', 409);
 
   return PersonRepository.create(person);
 };
