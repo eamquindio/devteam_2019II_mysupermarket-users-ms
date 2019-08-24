@@ -150,11 +150,11 @@ describe('Users CRUD flows', () => {
     }));
 
   it('find all users', async () => {
-    await UserRepository.create({
+    await UserRepository.create([{
       user_id: 1, user_name: 'camilo', name: 'camilo', mail: 'camilo@',
     }, {
       user_id: 2, user_name: 'camila', name: 'camila', mail: 'camila@',
-    });
+    }]);
 
     return chai
       .request(app)
