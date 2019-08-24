@@ -1,6 +1,6 @@
 const UserController = module.exports;
-const ErrorHandler = require('../utils/ErrorHandlerMiddleware');
 const UserService = require('../services/UsersService');
+const ErrorHandler = require('../utils/ErrorHandlerMiddleware');
 
 UserController.save = async (req, res) => {
   const { body } = req;
@@ -70,16 +70,17 @@ UserController.listAll = async (req, res) => {
   }
 };
 
-UserController.edit = async (req, res) => {
+UserController.edit = async (req, res, next) => {
   try {
     const { params: { id }, body } = req;
-    await UserService.edit(id, body);
+    const user = await UserService.edit(id, body);
 
-    return res.send();
+    if (!user) return next(new ErrorHandler.BaseError('person not exists', 404));
+
+    return res.send(user);
   } catch (error) {
     console.log(error);
-    res.status(500).send('error');
-  }
 
-  return null;
+    return next(error);
+  }
 };

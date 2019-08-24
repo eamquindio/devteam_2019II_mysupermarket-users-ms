@@ -118,4 +118,28 @@ describe('Users CRUD flows', () => {
     .then(async (response) => {
       assert.equal(response.status, 204);
     }));
+
+  it('edit user test', async () => {
+    await UserRepository.create({ user_id: 1, user_name: 'camilo_110', name: 'camilo', mail: 'camilo@gmail.com',
+    });
+
+    return chai
+      .request(app)
+      .put(`${API}/1`)
+      .send({ name: 'juan' })
+      .then(async () => {
+        const userToAssert = await UserRepository.find(1);
+        assert.equal(userToAssert.name, 'juan');
+      });
+  });
+
+  it('edit user nof found test', async () => chai
+    .request(app)
+    .put(`${API}/1`)
+    .send({ name: 'juan' })
+    .catch((error) => {
+      assert.equal(error.status, 404);
+    }));
 });
+
+

@@ -6,4 +6,4 @@ UserRepository.findByName = userName => DB('users').select('*').where({ user_nam
 UserRepository.find = userId => DB('users').select('*').where({ user_id: userId }).first();
 UserRepository.delete = userId => DB('users').del().where({ userId }).returning('*');
 UserRepository.listAll = () => DB('users').select('*');
-UserRepository.edit = (userId, user) => DB('users').update(user).where({ userId }).returning('*');
+UserRepository.edit = (id, user) => DB('users').update(user).where({ id }).returning('*');
