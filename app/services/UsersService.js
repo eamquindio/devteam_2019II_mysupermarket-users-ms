@@ -1,8 +1,11 @@
 const UsersService = module.exports;
 const UserRepository = require('../repositories/UserRepository');
+const ErrorHandler = require('../utils/ErrorHandlerMiddleware');
 
-UsersService.create = (user) => {
-  console.log('creating user');
+UsersService.create = async (user) => {
+  const userToValidate = await this.find(user.id);
+
+  if (userToValidate) throw ErrorHandler.BaseError('user already exists', 409);
 
   return UserRepository.create(user);
 };
