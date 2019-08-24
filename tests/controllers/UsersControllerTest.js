@@ -2,7 +2,7 @@ const assert = require('assert');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../../index');
-const UserRepository = require('../../app/repositories/UserRepository.js');
+const UserRepository = require('../../app/repositories/UserRepository');
 const Helper = require('../Helper');
 
 const API = '/api/users-ms/users';
@@ -73,5 +73,49 @@ describe('Users CRUD flows', () => {
     .get(`${API}/1`)
     .catch((error) => {
       assert.equal(error.status, 404);
+    }));
+
+  it('find user by name test', async () => {
+    await UserRepository.create([{
+      id: 1,
+      name: 'camilo',
+      user_id: 1,
+      user_name: 'alvaro',
+      mail: 'alvarito',
+      created_at: '2019-08-24T15:33:53.896Z',
+      updated_at: '2019-08-24T15:33:53.896Z',
+    }, {
+      id: 2,
+      name: 'claudia',
+      user_id: 2,
+      user_name: 'clau',
+      mail: 'claudita',
+      created_at: '2019-08-24T15:33:53.896Z',
+      updated_at: '2019-08-24T15:33:53.896Z',
+    }]);
+
+    return chai
+      .request(app)
+      .get(`${API}/find_by_name/alvaro`)
+      .then(async (response) => {
+        const { body } = response;
+        console.log(body);
+        assert.deepEqual(body[0], {
+          id: '1',
+          name: 'camilo',
+          user_id: '1',
+          user_name: 'alvaro',
+          mail: 'alvarito',
+          created_at: '2019-08-24T15:33:53.896Z',
+          updated_at: '2019-08-24T15:33:53.896Z',
+        });
+      });
+  });
+
+  it('find users by name empty test', async () => chai
+    .request(app)
+    .get(`${API}/find_by_name/camilo`)
+    .then(async (response) => {
+      assert.equal(response.status, 204);
     }));
 });

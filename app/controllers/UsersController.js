@@ -1,6 +1,5 @@
 const UserController = module.exports;
 const ErrorHandler = require('../utils/ErrorHandlerMiddleware');
-
 const UserService = require('../services/UsersService');
 
 UserController.save = async (req, res) => {
@@ -16,18 +15,19 @@ UserController.save = async (req, res) => {
   }
 };
 
-UserController.findByName = async (req, res) => {
+UserController.findByName = async (req, res, next) => {
   try {
     const { params: { name } } = req;
     const user = await UserService.findByName(name);
 
+    if (user.length === 0) return res.status(204).send(user);
+
     return res.send(user);
   } catch (error) {
     console.log(error);
-    res.status(500).send('error');
-  }
 
-  return null;
+    return next(error);
+  }
 };
 
 UserController.find = async (req, res, next) => {
