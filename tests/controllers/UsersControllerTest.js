@@ -120,7 +120,8 @@ describe('Users CRUD flows', () => {
     }));
 
   it('edit user test', async () => {
-    await UserRepository.create({ user_id: 1, user_name: 'camilo_110', name: 'camilo', mail: 'camilo@gmail.com',
+    await UserRepository.create({
+      user_id: 1, user_name: 'camilo_110', name: 'camilo', mail: 'camilo@gmail.com',
     });
 
     return chai
