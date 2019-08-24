@@ -58,15 +58,16 @@ UserController.delete = async (req, res) => {
   }
 };
 
-UserController.listAll = async (req, res) => {
+UserController.listAll = async (req, res, next) => {
   try {
     const user = await UserService.listAll();
+    if (user.length === 0) return res.status(204).send(user);
 
     return res.send(user);
   } catch (error) {
     console.log(error);
 
-    return res.status(500).send('error');
+    return next(error);
   }
 };
 

@@ -8,6 +8,13 @@ const Helper = require('../Helper');
 const API = '/api/users-ms/users';
 chai.use(chaiHttp);
 
+// TODO: quitar despuest---------------------
+console.log(app);
+console.log(UserRepository);
+console.log(assert);
+console.log(API);
+// -----------------------------------------
+
 describe('Users CRUD flows', () => {
   before(() => Helper.migrate());
 
@@ -141,4 +148,28 @@ describe('Users CRUD flows', () => {
     .catch((error) => {
       assert.equal(error.status, 404);
     }));
+
+  it('find all users', async () => {
+    await UserRepository.create([{
+      user_id: 1, user_name: 'camilo', name: 'camilo', mail: 'camilo@',
+    }, {
+      user_id: 2, user_name: 'camila', name: 'camila', mail: 'camila@',
+    }]);
+
+    return chai
+      .request(app)
+      .get(`${API}/all`)
+      .then(async (response) => {
+        const { body } = response;
+        assert.deepEqual(body.length, 2);
+      });
+  });
+
+  it('find all users empty test', async () => chai
+    .request(app)
+    .get(`${API}/all`)
+    .then(async (response) => {
+      assert.equal(response.status, 204);
+    }));
 });
+
